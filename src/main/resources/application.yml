@@ -5,7 +5,7 @@ spring:
     name: lore
 gcp:
   bucket:
-    name: year-exp-project
+    name: ${BUCKET:year-exp-project}
 eureka:
   client:
     service-url:

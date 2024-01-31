@@ -13,4 +13,5 @@ public class Initiative {
     String id;
     String name;
     List<Member> members;
+
 }

@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 public class Member {
     String name;
     String surname;
-    String fathername;
+    String fatherName;
+    String email;
 
     @Override
     public String toString() {
-        return surname + " " + name + " " + fathername;
+        return surname + " " + name + " " + fatherName;
     }
 }

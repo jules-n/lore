@@ -2,7 +2,6 @@ package year.exp.lore.services;
 
 import org.apache.poi.xwpf.usermodel.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import year.exp.lore.dto.Initiative;
 import year.exp.lore.dto.Member;
 
@@ -16,9 +15,10 @@ import java.util.List;
 @Service
 public class DocumentService {
 
+    private final static String FILE_PATH = "src/main/resources/founders-agreement-template.docx";
+
     public String export(Initiative dto) throws IOException {
-        String filePath = "src/main/resources/founders-agreement-template.docx";
-        FileInputStream fis = new FileInputStream(filePath);
+        FileInputStream fis = new FileInputStream(FILE_PATH);
         XWPFDocument document = new XWPFDocument(fis);
         textReplace(document, dto.getName());
         addFounders(document, dto.getMembers());
@@ -77,11 +77,5 @@ public class DocumentService {
         }
 
     }
-
-    private static void setTextToParagraph(XWPFParagraph paragraph, String text) {
-        paragraph.removeRun(0);
-        paragraph.createRun().setText(text, 0);
-    }
-
 
 }

@@ -11,10 +11,12 @@ import java.io.FileInputStream;
 @Configuration
 public class FirebaseInitializer {
 
+    private final static String CONFIG_PATH = "src/main/resources/firebase-service-credentials.json";
+
     @Bean
     public FirebaseApp initialize() {
         try {
-            FileInputStream serviceAccount = new FileInputStream("src/main/resources/firebase-service-credentials.json");
+            FileInputStream serviceAccount = new FileInputStream(CONFIG_PATH);
 
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
